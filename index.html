@@ -1636,6 +1636,15 @@
         [data-theme="light"] .booking-summary {
             color: #1A1A1A;
         }
+        
+        /* Email input validation */
+        input:invalid {
+            border-color: #ff6b6b !important;
+        }
+        
+        input:valid {
+            border-color: #2EC4B6 !important;
+        }
     </style>
 </head>
 <body data-theme="dark">
@@ -1698,7 +1707,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                    <img src="https://imgur.com/d3rINJW.jpeg" alt="AUTO Z LOGO" class="logo-img">
+                    <img src="https://i.imgur.com/d3rINJW.jpeg" alt="AUTO Z LOGO" class="logo-img">
                 </a>
                 
                 <ul class="nav-links">
@@ -1748,7 +1757,7 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <div class="stat-number">8</div>
+                        <div class="stat-number">9</div>
                         <div class="stat-label">Véhicules Premium</div>
                     </div>
                     <div class="stat">
@@ -1765,7 +1774,7 @@
         
         <!-- Hero Car Image -->
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Luxury Car Rental">
+            <img src="https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387732/photo_de_magazin_gkyppg.jpg" alt="Luxury Car Rental">
         </div>
     </section>
 
@@ -1795,15 +1804,15 @@
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Clé Digitale</h3>
-                    <p>Déverrouille et démarre ta voiture directement depuis l'app AUTO Z.</p>
+                    <h3>Service Premium</h3>
+                    <p>Un service client dédié disponible 7j/7 pour répondre à tous vos besoins.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-wifi"></i>
+                        <i class="fas fa-car"></i>
                     </div>
-                    <h3>Connexion Illimitée</h3>
-                    <p>WiFi gratuit et chargeur sans fil dans tous nos véhicules.</p>
+                    <h3>Véhicules Récents</h3>
+                    <p>Notre flotte est composée de véhicules récents, entretenus et garantis.</p>
                 </div>
             </div>
         </div>
@@ -1862,7 +1871,7 @@
                     </button>
                 </div>
                 <div class="business-image">
-                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Location voiture entreprise" style="width: 100%; border-radius: 25px; box-shadow: var(--shadow-lg);">
+                    <img src="https://i.imgur.com/7xL9t8b.jpeg" alt="Location voiture entreprise" style="width: 100%; border-radius: 25px; box-shadow: var(--shadow-lg);">
                 </div>
             </div>
         </div>
@@ -1893,7 +1902,7 @@
                     <div class="map-container">
                         <iframe 
                             id="storeMap"
-                            src=""
+                            src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&center=33.538722,-7.580167&zoom=15&maptype=roadmap&language=fr"
                             allowfullscreen=""
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
@@ -1918,7 +1927,7 @@
                     </a>
                 </div>
                 <div class="store-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="AUTO Z Casablanca Store">
+                    <img src="https://i.imgur.com/9jK8f7p.jpeg" alt="AUTO Z Casablanca Store">
                 </div>
             </div>
         </div>
@@ -1929,14 +1938,14 @@
         <div class="container">
             <div class="section-title">
                 <h2>Notre Flotte Premium</h2>
-                <p>Des véhicules sélectionnés pour leur style, leur performance et leur connexion digitale</p>
+                <p>Des véhicules sélectionnés pour leur style, leur performance et leur fiabilité</p>
             </div>
             
             <div class="category-filter">
                 <button class="category-btn active" onclick="filterCars('all')">Tous</button>
-                <button class="category-btn" onclick="filterCars('economique')">Économique</button>
                 <button class="category-btn" onclick="filterCars('compact')">Compact</button>
-                <button class="category-btn" onclick="filterCars('suv')">SUV</button>
+                <button class="category-btn" onclick="filterCars('economique')">Économique</button>
+                <button class="category-btn" onclick="filterCars('suv')">SUV Premium</button>
             </div>
             
             <div class="cars-grid" id="carsGrid">
@@ -2048,8 +2057,6 @@
                             <label>Lieu de Prise en Charge *</label>
                             <select id="pickupLocation" required>
                                 <option>Agence AUTO Z Casablanca Centre</option>
-
-
                                 <option>Livraison à Domicile (Casablanca)</option>
                                 <option>Aéroport Mohammed V</option>
                             </select>
@@ -2205,7 +2212,7 @@
                             <select id="vehicleType" required>
                                 <option>Voitures Économiques</option>
                                 <option>Voitures Compactes</option>
-                                <option>SUV</option>
+                                <option>SUV Premium</option>
                                 <option>Mixte (Plusieurs types)</option>
                             </select>
                         </div>
@@ -2273,8 +2280,8 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="tel:+212775608231"><i class="fas fa-phone"></i> +212 775 608 231</a></li>
                         <li><a href="tel:+212632229789"><i class="fas fa-phone"></i> +212 632 229 789</a></li>
+                        <li><a href="tel:+212775608231"><i class="fas fa-phone"></i> +212 775 608 231</a></li>
                         <li><a href="mailto:autoz0367@gmail.com"><i class="fas fa-envelope"></i> autoz0367@gmail.com</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> 7j/7 • 24h</a></li>
                     </ul>
@@ -2290,7 +2297,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 AUTO Z. Made with ❤️ for Gen Z in Casablanca.</p>
+                <p>© 2025 AUTO Z. Made with ❤️ for everyone in Casablanca.</p>
             </div>
         </div>
     </footer>
@@ -2299,13 +2306,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
     <script>
         // ========== EMAILJS CONFIGURATION ==========
-        // IMPORTANT: Replace these with your actual EmailJS credentials
-        // Get these from: https://dashboard.emailjs.com/
-        
-        const EMAILJS_PUBLIC_KEY = "SFYcPjXmSyUx-85yz"; // From Dashboard > Integration
-        const EMAILJS_SERVICE_ID = "SFYcPjXmSyUx-85yz"; // From Email Services
-        const EMAILJS_TEMPLATE_ID = "template_qrvc1se"; // From Email Templates
-        const YOUR_EMAIL = "autoz0367@gmail.com"; // Your business email
+        const EMAILJS_PUBLIC_KEY = "SFYcPjXmSyUx-85yz";
+        const EMAILJS_SERVICE_ID = "service_v2jzn0q"; // Fixed: Changed from public key to actual service ID
+        const EMAILJS_TEMPLATE_ID = "template_qrvc1se";
+        const YOUR_EMAIL = "autoz0367@gmail.com";
 
         // Initialize EmailJS
         emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -2317,7 +2321,8 @@
         // Initialize Google Maps
         function initializeMap() {
             const mapIframe = document.getElementById('storeMap');
-            const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${storeLatitude},${storeLongitude}&zoom=15&language=fr&maptype=roadmap`;
+            // Using view mode instead of place to avoid API key restrictions
+            const mapUrl = `https://www.google.com/maps/embed/v1/view?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&center=${storeLatitude},${storeLongitude}&zoom=15&maptype=roadmap&language=fr`;
             mapIframe.src = mapUrl;
         }
 
@@ -2349,7 +2354,7 @@
             icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         }
         
-        // Car Data with YOUR Imgur URLs
+        // ========== CAR DATA ==========
         const cars = [
             {
                 id: 1,
@@ -2357,14 +2362,14 @@
                 category: "City Cruiser",
                 type: "compact",
                 price: 250,
-                image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768388004/renault_clio_2_yogc28.jpg",
                 features: {
                     passengers: 5,
                     bags: 2,
                     transmission: "Manuelle",
                     ac: true,
                     doors: 4,
-                    wifi: true,
+                    wifi: false,
                     bluetooth: true
                 },
                 description: "Parfaite pour explorer Casablanca. Économique, stylée et connectée avec Apple CarPlay/Android Auto.",
@@ -2375,15 +2380,15 @@
                 name: "Renault Clio",
                 category: "Easy Rider",
                 type: "compact",
-                price: 350,
-                image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                price: 300,
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768388034/renault_clio_grg6mq.jpg",
                 features: {
                     passengers: 5,
                     bags: 2,
                     transmission: "Automatique",
                     ac: true,
                     doors: 4,
-                    wifi: true,
+                    wifi: false,
                     bluetooth: true
                 },
                 description: "Même style, plus de confort. Transmission automatique pour naviguer facilement dans le traffic casablancais.",
@@ -2391,11 +2396,30 @@
             },
             {
                 id: 3,
+                name: "Renault Clio",
+                category: "Urban Pro",
+                type: "compact",
+                price: 280,
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768388143/renault_clio_3_sw3vj6.jpg",
+                features: {
+                    passengers: 5,
+                    bags: 2,
+                    transmission: "Manuelle",
+                    ac: true,
+                    doors: 4,
+                    wifi: false,
+                    bluetooth: true
+                },
+                description: "Version premium avec équipements complets. Idéale pour les déplacements urbains fréquents.",
+                genZTags: ["#UrbanPro", "#Reliable", "#CityReady"]
+            },
+            {
+                id: 4,
                 name: "Dacia Logan",
                 category: "Budget Boss",
                 type: "economique",
                 price: 200,
-                image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387813/dacia_logan_ikhg1s.jpg",
                 features: {
                     passengers: 5,
                     bags: 3,
@@ -2409,12 +2433,12 @@
                 genZTags: ["#BudgetFriendly", "#RoadTrip", "#SquadGoals"]
             },
             {
-                id: 4,
+                id: 5,
                 name: "Dacia Logan",
                 category: "Family Choice",
                 type: "economique",
                 price: 220,
-                image: "https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387865/dacia_logan2_gmoltp.jpg",
                 features: {
                     passengers: 5,
                     bags: 4,
@@ -2427,40 +2451,20 @@
                 description: "Spacieuse et économique, idéale pour les familles et les longs trajets.",
                 genZTags: ["#FamilyCar", "#Spacious", "#LongTrips"]
             },
-           {
-    id: 5,
-    name: "volkswagen Touareg",
-    category: "Urban SUV",
-    type: "suv",
-    price: 1000,
-    // image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-image: "https://i.imgur.com/J81HgcH.jpg",
-    features: {
-        passengers: 5,
-        bags: 3,
-        transmission: "Automatique",
-        ac: true,
-        doors: 5,
-        wifi: true,
-        bluetooth: true
-    },
-    description: "SUV compact au design audacieux, alliant praticité urbaine et style affirmé.",
-    genZTags: ["#UrbanSUV", "#BoldDesign", "#CityReady"]
-},
             {
                 id: 6,
                 name: "Opel Corsa",
                 category: "Urban Explorer",
                 type: "compact",
                 price: 280,
-                image: "https://i.imgur.com/9sDv8Xd.jpeg", // VOTRE URL IMGUR
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387937/opel_corsa_kwd2gm.jpg",
                 features: {
                     passengers: 5,
                     bags: 2,
                     transmission: "Manuelle",
                     ac: true,
                     doors: 4,
-                    wifi: true,
+                    wifi: false,
                     bluetooth: true
                 },
                 description: "Compacte et maniable, parfaite pour la ville avec un design moderne et des technologies avancées.",
@@ -2471,15 +2475,15 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 name: "Opel Corsa",
                 category: "City Pro",
                 type: "compact",
-                price: 380,
-                image: "https://i.imgur.com/9sDv8Xd.jpeg", // Même image pour les deux Opel Corsa
+                price: 350,
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387975/oprl_corsa_2_jkoxea.jpg",
                 features: {
                     passengers: 5,
                     bags: 2,
                     transmission: "Automatique",
                     ac: true,
                     doors: 4,
-                    wifi: true,
+                    wifi: false,
                     bluetooth: true
                 },
                 description: "Confort et praticité avec la transmission automatique. Idéale pour le traffic urbain.",
@@ -2491,21 +2495,37 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 category: "Adventure Seeker",
                 type: "suv",
                 price: 550,
-                image: "https://i.imgur.com/4PXt9c2.jpeg", // VOTRE URL IMGUR
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768387901/kia_sportage_ngeb7i.jpg",
                 features: {
                     passengers: 5,
                     bags: 4,
                     transmission: "Automatique",
                     ac: true,
                     doors: 5,
-                    wifi: true,
+                    wifi: false,
                     bluetooth: true
                 },
                 description: "SUV spacieux et confortable, parfait pour les familles et les aventures hors route.",
                 genZTags: ["#FamilyAdventure", "#SpaceGoals", "#WeekendEscape"]
-                 {
-              
-            
+            },
+            {
+                id: 9,
+                name: "Volkswagen Touareg",
+                category: "Luxury SUV",
+                type: "suv",
+                price: 1000,
+                image: "https://res.cloudinary.com/dbq86o7xs/image/upload/v1768388177/touareg_x5sgza.jpg",
+                features: {
+                    passengers: 5,
+                    bags: 5,
+                    transmission: "Automatique",
+                    ac: true,
+                    doors: 5,
+                    wifi: false,
+                    bluetooth: true
+                },
+                description: "SUV premium allemand offrant confort, espace et performances exceptionnelles.",
+                genZTags: ["#PremiumRide", "#GermanQuality", "#LuxuryTravel"]
             }
         ];
 
@@ -2527,12 +2547,10 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             // Check if EmailJS is configured
             if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY_HERE") {
                 console.warn("⚠️ Please configure EmailJS with your credentials!");
-                console.log("1. Go to https://dashboard.emailjs.com/");
-                console.log("2. Get your Public Key from Dashboard > Integration");
-                console.log("3. Get Service ID from Email Services");
-                console.log("4. Get Template ID from Email Templates");
-                console.log("5. Update the constants above");
             }
+            
+            // Update car count in stats
+            document.querySelector('.stat-number').textContent = cars.length;
         });
 
         function renderCars(filter = 'all') {
@@ -2565,7 +2583,7 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                                 <i class="fas fa-cog"></i> ${car.features.transmission}
                             </div>
                             <div class="car-feature">
-                                <i class="fas fa-wifi"></i> ${car.features.wifi ? 'WiFi' : 'No WiFi'}
+                                <i class="fas fa-bluetooth"></i> ${car.features.bluetooth ? 'Bluetooth' : 'No Bluetooth'}
                             </div>
                         </div>
                         <p class="car-description">${car.description}</p>
@@ -2595,7 +2613,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             const modal = document.getElementById('carDetailsModal');
             const title = document.getElementById('carDetailsTitle');
             const main = document.getElementById('carDetailsMain');
-            const chauffeurSection = document.getElementById('chauffeurSection');
             
             title.textContent = car.name;
             main.innerHTML = `
@@ -2623,10 +2640,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                             <span>Climatisation ${car.features.ac ? '✓' : '✗'}</span>
                         </div>
                         <div class="car-details-feature">
-                            <i class="fas fa-wifi"></i>
-                            <span>WiFi ${car.features.wifi ? '✓' : '✗'}</span>
-                        </div>
-                        <div class="car-details-feature">
                             <i class="fas fa-bluetooth"></i>
                             <span>Bluetooth ${car.features.bluetooth ? '✓' : '✗'}</span>
                         </div>
@@ -2638,8 +2651,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 </div>
             `;
             
-            chauffeurSection.style.display = 'none';
-            
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
@@ -2650,9 +2661,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
         }
 
         function closeCarDetailsModalAndOpenBooking() {
-            const chauffeurCheckbox = document.getElementById('chauffeurService');
-            chauffeurService = chauffeurCheckbox ? chauffeurCheckbox.checked : false;
-            
             closeCarDetailsModal();
             if (selectedCar) {
                 openBookingModal();
@@ -2671,10 +2679,25 @@ image: "https://i.imgur.com/J81HgcH.jpg",
         }
 
         function initializeDatePickers() {
-            flatpickr('.date-input', {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            flatpickr('#startDate', {
                 dateFormat: "d/m/Y",
                 locale: "fr",
                 minDate: "today",
+                defaultDate: today,
+                onChange: function(selectedDates, dateStr, instance) {
+                    updateBookingSummary();
+                }
+            });
+            
+            flatpickr('#endDate', {
+                dateFormat: "d/m/Y",
+                locale: "fr",
+                minDate: tomorrow,
+                defaultDate: tomorrow,
                 onChange: function(selectedDates, dateStr, instance) {
                     updateBookingSummary();
                 }
@@ -2687,8 +2710,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             
             document.getElementById('clientEmail').addEventListener('blur', validateEmail);
             document.getElementById('companyEmail').addEventListener('blur', validateCompanyEmail);
-            
-            chauffeurService = false;
             
             window.addEventListener('scroll', () => {
                 const header = document.getElementById('header');
@@ -2721,8 +2742,9 @@ image: "https://i.imgur.com/J81HgcH.jpg",
         function validateEmail() {
             const email = document.getElementById('clientEmail').value;
             const error = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
-            if (email && !email.includes('@')) {
+            if (email && !emailRegex.test(email)) {
                 error.style.display = 'block';
                 return false;
             } else {
@@ -2734,8 +2756,9 @@ image: "https://i.imgur.com/J81HgcH.jpg",
         function validateCompanyEmail() {
             const email = document.getElementById('companyEmail').value;
             const error = document.getElementById('companyEmailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
-            if (email && !email.includes('@')) {
+            if (email && !emailRegex.test(email)) {
                 error.style.display = 'block';
                 return false;
             } else {
@@ -2755,7 +2778,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             
             const modal = document.getElementById('bookingModal');
             const carDisplay = document.getElementById('selectedCarDisplay');
-            const chauffeurSection = document.getElementById('chauffeurBookingSection');
             
             carDisplay.innerHTML = `
                 <img src="${selectedCar.image}" alt="${selectedCar.name}">
@@ -2766,7 +2788,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 </div>
             `;
             
-            chauffeurSection.style.display = 'none';
             chauffeurService = false;
             
             updateBookingSummary();
@@ -2795,7 +2816,15 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             document.querySelectorAll('.payment-method').forEach(el => {
                 el.classList.remove('selected');
             });
-            event.target.closest('.payment-method').classList.add('selected');
+            
+            // Find the clicked payment method
+            let target = event.target;
+            while (target && !target.classList.contains('payment-method')) {
+                target = target.parentElement;
+            }
+            if (target) {
+                target.classList.add('selected');
+            }
             
             document.getElementById('cardPayment').style.display = method === 'card' ? 'block' : 'none';
             document.getElementById('cashPayment').style.display = method === 'cash' ? 'block' : 'none';
@@ -2816,9 +2845,24 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 return;
             }
             
-            const start = new Date(startDate.split('/').reverse().join('-'));
-            const end = new Date(endDate.split('/').reverse().join('-'));
-            rentalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+            // Parse dates in dd/mm/yyyy format
+            const startParts = startDate.split('/');
+            const endParts = endDate.split('/');
+            
+            if (startParts.length !== 3 || endParts.length !== 3) {
+                return;
+            }
+            
+            const start = new Date(startParts[2], startParts[1] - 1, startParts[0]);
+            const end = new Date(endParts[2], endParts[1] - 1, endParts[0]);
+            
+            if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+                return;
+            }
+            
+            // Calculate rental days
+            const timeDiff = end.getTime() - start.getTime();
+            rentalDays = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
             totalPrice = rentalDays * selectedCar.price;
             
             const finalTotal = totalPrice;
@@ -2826,7 +2870,7 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             summary.innerHTML = `
                 <div class="summary-item">
                     <span>Location ${selectedCar.name}</span>
-                    <span>${selectedCar.price} DH × ${rentalDays} jours</span>
+                    <span>${selectedCar.price} DH × ${rentalDays} jour${rentalDays > 1 ? 's' : ''}</span>
                 </div>
                 <div class="summary-item">
                     <span>Assurance Tous Risques</span>
@@ -2834,10 +2878,6 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 </div>
                 <div class="summary-item">
                     <span>Assistance 24h/24</span>
-                    <span style="color: var(--secondary);">INCLUS</span>
-                </div>
-                <div class="summary-item">
-                    <span>WiFi & Connexion</span>
                     <span style="color: var(--secondary);">INCLUS</span>
                 </div>
                 <div class="summary-item">
@@ -2898,49 +2938,10 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             } catch (error) {
                 console.error("Email sending failed:", error);
                 document.getElementById('loadingOverlay').style.display = 'none';
-                return { success: false, message: "Failed to send email: " + error.text };
-            }
-        }
-
-        // ========== TEST EMAIL FUNCTION ==========
-        async function testEmailJS() {
-            if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY_HERE") {
-                alert("❌ Please configure EmailJS credentials first!");
-                return;
-            }
-            
-            try {
-                document.getElementById('loadingOverlay').style.display = 'flex';
-                
-                const testData = {
-                    to_email: YOUR_EMAIL,
-                    client_name: "TEST CLIENT",
-                    client_email: "test@example.com",
-                    client_phone: "+212 600 000 000",
-                    client_country: "Maroc",
-                    car_name: "Renault Clio - City Cruiser",
-                    start_date: "15/12/2025",
-                    end_date: "20/12/2025",
-                    rental_days: "5",
-                    total_price: "1250 DH",
-                    pickup_location: "Agence AUTO Z Casablanca Centre",
-                    payment_method: "Espèces",
-                    chauffeur_service: "Non",
-                    timestamp: new Date().toLocaleString('fr-FR')
+                return { 
+                    success: false, 
+                    message: "Failed to send email. Please contact us directly at " + YOUR_EMAIL 
                 };
-
-                const response = await emailjs.send(
-                    EMAILJS_SERVICE_ID,
-                    EMAILJS_TEMPLATE_ID,
-                    testData
-                );
-                
-                document.getElementById('loadingOverlay').style.display = 'none';
-                alert("✅ Test email sent! Check your inbox at " + YOUR_EMAIL);
-                
-            } catch (error) {
-                document.getElementById('loadingOverlay').style.display = 'none';
-                alert("❌ Error sending test email: " + JSON.stringify(error));
             }
         }
 
@@ -2960,7 +2961,12 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             }
             
             if (!validateEmail()) {
-                alert('🚨 Veuillez entrer une adresse email valide contenant @');
+                alert('🚨 Veuillez entrer une adresse email valide');
+                return;
+            }
+            
+            if (!selectedCar) {
+                alert('🚨 Veuillez sélectionner un véhicule');
                 return;
             }
             
@@ -3009,7 +3015,7 @@ image: "https://i.imgur.com/J81HgcH.jpg",
                 showConfettiEffect();
                 
             } else {
-                alert("La réservation a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement.");
+                alert("La réservation a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement à " + YOUR_EMAIL);
                 // Still close modal and reset form
                 closeBookingModal();
                 resetForm();
@@ -3036,7 +3042,7 @@ image: "https://i.imgur.com/J81HgcH.jpg",
             }
             
             if (!validateCompanyEmail()) {
-                alert('🚨 Veuillez entrer une adresse email valide contenant @');
+                alert('🚨 Veuillez entrer une adresse email valide');
                 return;
             }
             
@@ -3095,7 +3101,7 @@ AUTO Z - Solutions Corporate
                 
             } catch (error) {
                 document.getElementById('loadingOverlay').style.display = 'none';
-                alert("La demande a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement.");
+                alert("La demande a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement à " + YOUR_EMAIL);
                 closeBusinessModal();
                 resetBusinessForm();
             }
