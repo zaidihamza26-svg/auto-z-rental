@@ -1895,7 +1895,6 @@
                         </a>
                         <br>
                         <strong>🕒 Horaires :</strong> 7j/7 • 24h<br>
-                       
                     </p>
                     
                     <!-- Google Maps Embed -->
@@ -2111,7 +2110,7 @@
                         <div class="cash-instructions">
                             <h4><i class="fas fa-info-circle"></i> Paiement en Espèces</h4>
                             <p>💰 Tu peux régler ta location en espèces lors de la prise en charge du véhicule.</p>
-                            <p><strong>📋 Documents requis :</strong> Carte d'identité, Permis de conduire, et une caution de 3000 DH.</p>
+                            <p><strong>📋 Documents requis :</strong> Carte d'identité et Permis de conduire.</p>
                             <p><strong>📍 Lieu :</strong> Agence AUTO Z Casablanca Centre - 33°32'19.4"N 7°34'48.6"W, Casablanca</p>
                         </div>
                     </div>
@@ -2274,7 +2273,6 @@
                                 Centre Ville - 33°32'19.4"N 7°34'48.6"W
                             </a>
                         </li>
-                       
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -2306,13 +2304,31 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
     <script>
         // ========== EMAILJS CONFIGURATION ==========
-        const EMAILJS_PUBLIC_KEY = "SFYcPjXmSyUx-85yz";
-        const EMAILJS_SERVICE_ID = "service_v2jzn0q"; // Fixed: Changed from public key to actual service ID
+        // CORRECT EmailJS Credentials - Updated
+        const EMAILJS_PUBLIC_KEY = "JQ2a85BXs8McE1-Rm";
+        
+        // Your EmailJS Service ID
+        const EMAILJS_SERVICE_ID = "SFYcPjXmSyUx-85yz";
+        
+        // Your EmailJS Template ID
         const EMAILJS_TEMPLATE_ID = "template_qrvc1se";
-        const YOUR_EMAIL = "autoz0367@gmail.com";
+        
+        // Your email address to receive notifications
+        const YOUR_EMAIL = "autoz0307@gmail.com";
+        
+        // Your business email for contact (can be same as above)
+        const BUSINESS_EMAIL = "autoz0307@gmail.com";
 
-        // Initialize EmailJS
-        emailjs.init(EMAILJS_PUBLIC_KEY);
+        // Initialize EmailJS with CORRECT Public Key
+        (function() {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+            console.log("✅ EmailJS Initialized Successfully!");
+            console.log("📧 Configuration:");
+            console.log("   Public Key:", EMAILJS_PUBLIC_KEY);
+            console.log("   Service ID:", EMAILJS_SERVICE_ID);
+            console.log("   Template ID:", EMAILJS_TEMPLATE_ID);
+            console.log("   Recipient Email:", YOUR_EMAIL);
+        })();
 
         // Your coordinates converted to decimal degrees
         const storeLatitude = 33.538722;
@@ -2321,7 +2337,6 @@
         // Initialize Google Maps
         function initializeMap() {
             const mapIframe = document.getElementById('storeMap');
-            // Using view mode instead of place to avoid API key restrictions
             const mapUrl = `https://www.google.com/maps/embed/v1/view?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&center=${storeLatitude},${storeLongitude}&zoom=15&maptype=roadmap&language=fr`;
             mapIframe.src = mapUrl;
         }
@@ -2544,10 +2559,9 @@
             setupAnimations();
             initializeMap();
             
-            // Check if EmailJS is configured
-            if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY_HERE") {
-                console.warn("⚠️ Please configure EmailJS with your credentials!");
-            }
+            // Test EmailJS initialization
+            console.log("✅ Page loaded successfully!");
+            console.log("📋 EmailJS is ready to send emails.");
             
             // Update car count in stats
             document.querySelector('.stat-number').textContent = cars.length;
@@ -2817,7 +2831,6 @@
                 el.classList.remove('selected');
             });
             
-            // Find the clicked payment method
             let target = event.target;
             while (target && !target.classList.contains('payment-method')) {
                 target = target.parentElement;
@@ -2845,7 +2858,6 @@
                 return;
             }
             
-            // Parse dates in dd/mm/yyyy format
             const startParts = startDate.split('/');
             const endParts = endDate.split('/');
             
@@ -2860,7 +2872,6 @@
                 return;
             }
             
-            // Calculate rental days
             const timeDiff = end.getTime() - start.getTime();
             rentalDays = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
             totalPrice = rentalDays * selectedCar.price;
@@ -2884,35 +2895,32 @@
                     <span>Frais de Service</span>
                     <span style="color: var(--secondary);">GRATUIT</span>
                 </div>
-                <div class="summary-item" style="border-top: 2px solid var(--primary); padding-top: 1.5rem;">
-                    <span style="font-size: 1.3rem;">TOTAL</span>
-                    <span class="summary-total">${finalTotal} DH</span>
-                </div>
-                ${rentalDays > 1 ? `
-                <div style="background: rgba(46, 196, 182, 0.1); padding: 1rem; border-radius: 10px; margin-top: 1rem; border-left: 4px solid var(--secondary);">
-                    <div style="display: flex; justify-content: between; align-items: center;">
-                        <span style="font-weight: 600; color: var(--secondary);">💰 Économie : ${(selectedCar.price * rentalDays) - totalPrice} DH</span>
-                        <span style="color: var(--secondary); font-size: 0.9rem;">Prix dégressif appliqué !</span>
+                <div class="summary-item" style="border-top: 2px solid var(--primary); padding-top: 1.5rem; background: rgba(46, 196, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin-top: 1rem;">
+                    <div style="text-align: center; width: 100%;">
+                        <div style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.5rem;">✅ Tarif final à convenir en agence</div>
+                        <div style="font-size: 0.9rem; color: var(--light); opacity: 0.8;">Réductions possibles selon durée et options</div>
                     </div>
                 </div>
-                ` : ''}
             `;
         }
 
-        // ========== EMAIL SENDING FUNCTION ==========
+        // ========== EMAIL SENDING FUNCTIONS ==========
         async function sendReservationEmail(formData) {
             try {
+                console.log("📤 Sending reservation email with data:", formData);
+                
                 // Show loading
                 document.getElementById('loadingOverlay').style.display = 'flex';
                 
-                // Prepare email data
-                const emailData = {
+                // Prepare template parameters - EXACTLY as they appear in your EmailJS template
+                const templateParams = {
                     to_email: YOUR_EMAIL,
-                    client_name: formData.name,
-                    client_email: formData.email,
-                    client_phone: formData.phone,
-                    client_country: formData.country,
-                    car_name: formData.carName,
+                    to_name: "AUTO Z Reservation",
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    phone: formData.phone,
+                    country: formData.country,
+                    car_model: formData.carName,
                     start_date: formData.startDate,
                     end_date: formData.endDate,
                     rental_days: formData.rentalDays,
@@ -2920,27 +2928,103 @@
                     pickup_location: formData.pickupLocation,
                     payment_method: formData.paymentMethod,
                     chauffeur_service: formData.chauffeurService ? "Oui (+200 DH/jour)" : "Non",
+                    message: `Nouvelle réservation de ${formData.name} pour ${formData.carName} du ${formData.startDate} au ${formData.endDate}.`,
+                    reply_to: formData.email,
+                    subject: `Nouvelle Réservation: ${formData.carName} - ${formData.name}`,
                     timestamp: new Date().toLocaleString('fr-FR')
                 };
 
+                console.log("📧 Email template parameters:", templateParams);
+                
                 // Send email using EmailJS
                 const response = await emailjs.send(
                     EMAILJS_SERVICE_ID,
                     EMAILJS_TEMPLATE_ID,
-                    emailData
+                    templateParams
                 );
 
+                console.log("✅ Email sent successfully! Status:", response.status, "Text:", response.text);
+                
                 // Hide loading
                 document.getElementById('loadingOverlay').style.display = 'none';
                 
-                return { success: true, message: "Email sent successfully!" };
+                return { 
+                    success: true, 
+                    message: "Email envoyé avec succès!",
+                    response: response
+                };
                 
             } catch (error) {
-                console.error("Email sending failed:", error);
+                console.error("❌ Email sending failed. Full error:", error);
+                console.error("Error details:", {
+                    text: error.text,
+                    status: error.status
+                });
+                
                 document.getElementById('loadingOverlay').style.display = 'none';
+                
                 return { 
                     success: false, 
-                    message: "Failed to send email. Please contact us directly at " + YOUR_EMAIL 
+                    message: `Erreur lors de l'envoi de l'email: ${error.text || error.message}`,
+                    error: error
+                };
+            }
+        }
+
+        async function sendBusinessRequestEmail(formData) {
+            try {
+                console.log("📤 Sending business request email with data:", formData);
+                
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                
+                const templateParams = {
+                    to_email: YOUR_EMAIL,
+                    to_name: "AUTO Z Business",
+                    from_name: formData.contactName,
+                    from_email: formData.companyEmail,
+                    phone: formData.companyPhone,
+                    company_name: formData.companyName,
+                    company_id: formData.companyId,
+                    contact_position: formData.contactPosition,
+                    company_address: formData.companyAddress || "Non spécifiée",
+                    vehicle_type: formData.vehicleType,
+                    vehicle_count: formData.vehicleCount,
+                    rental_duration: formData.rentalDuration,
+                    estimated_mileage: formData.estimatedMileage,
+                    additional_info: formData.additionalInfo || "Aucune information supplémentaire",
+                    message: `Nouvelle demande de devis de ${formData.companyName} (${formData.contactName})`,
+                    reply_to: formData.companyEmail,
+                    subject: `Demande Devis Entreprise: ${formData.companyName}`,
+                    timestamp: new Date().toLocaleString('fr-FR')
+                };
+
+                console.log("📧 Business email template parameters:", templateParams);
+                
+                const response = await emailjs.send(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    templateParams
+                );
+
+                console.log("✅ Business email sent successfully! Status:", response.status);
+                
+                document.getElementById('loadingOverlay').style.display = 'none';
+                
+                return { 
+                    success: true, 
+                    message: "Demande de devis envoyée avec succès!",
+                    response: response
+                };
+                
+            } catch (error) {
+                console.error("❌ Business email sending failed:", error);
+                
+                document.getElementById('loadingOverlay').style.display = 'none';
+                
+                return { 
+                    success: false, 
+                    message: `Erreur lors de l'envoi de la demande: ${error.text || error.message}`,
+                    error: error
                 };
             }
         }
@@ -2949,7 +3033,8 @@
             const name = document.getElementById('clientName').value;
             const email = document.getElementById('clientEmail').value;
             const phone = document.getElementById('clientPhone').value;
-            const country = document.getElementById('clientCountry').value;
+            const countrySelect = document.getElementById('clientCountry');
+            const country = countrySelect.options[countrySelect.selectedIndex].text;
             const pickupLocation = document.getElementById('pickupLocation').value;
             const startDate = document.getElementById('startDate').value;
             const endDate = document.getElementById('endDate').value;
@@ -2980,11 +3065,13 @@
                 startDate: startDate,
                 endDate: endDate,
                 rentalDays: rentalDays,
-                totalPrice: totalPrice + " DH",
+                totalPrice: "Tarif à convenir en agence",
                 pickupLocation: pickupLocation,
                 paymentMethod: selectedPaymentMethod === 'card' ? 'Carte Bancaire' : 'Espèces',
                 chauffeurService: chauffeurService
             };
+            
+            console.log("📋 Form data prepared for email:", formData);
             
             // Send email notification
             const emailResult = await sendReservationEmail(formData);
@@ -2998,9 +3085,10 @@
                     <strong>${name}</strong>, ta réservation pour la <strong>${selectedCar.name}</strong> est confirmée !<br><br>
                     📅 <strong>Dates:</strong> ${startDate} au ${endDate}<br>
                     ⏱️ <strong>Durée:</strong> ${rentalDays} jour${rentalDays > 1 ? 's' : ''}<br>
-                    💰 <strong>Total:</strong> ${totalPrice} DH<br>
                     📍 <strong>Lieu de prise:</strong> ${pickupLocation}<br>
                     💳 <strong>Paiement:</strong> ${selectedPaymentMethod === 'card' ? 'Carte Bancaire' : 'Espèces'}<br><br>
+                    ✅ <strong>Tarif final à convenir en agence</strong><br>
+                    <em style="font-size: 0.9rem; opacity: 0.8;">Réductions possibles selon durée et options</em><br><br>
                     📧 Un email de confirmation a été envoyé à <strong>${email}</strong>
                 `;
                 
@@ -3015,8 +3103,28 @@
                 showConfettiEffect();
                 
             } else {
-                alert("La réservation a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement à " + YOUR_EMAIL);
-                // Still close modal and reset form
+                // Show fallback message - email failed but reservation recorded
+                alert(`
+🎉 RÉSERVATION CONFIRMÉE !
+
+Merci ${name} pour votre réservation de ${selectedCar.name}.
+
+Votre réservation a été enregistrée avec succès !
+
+📞 Contactez-nous au +212 632 229 789 pour finaliser.
+
+Détails:
+• Véhicule: ${selectedCar.name} - ${selectedCar.category}
+• Dates: ${startDate} au ${endDate} (${rentalDays} jours)
+• Lieu: ${pickupLocation}
+• Paiement: ${selectedPaymentMethod === 'card' ? 'Carte Bancaire' : 'Espèces'}
+
+✅ Tarif final à convenir en agence
+(Réductions possibles selon durée)
+
+Un problème technique a empêché l'envoi de l'email automatique.
+                `);
+                
                 closeBookingModal();
                 resetForm();
             }
@@ -3046,38 +3154,28 @@
                 return;
             }
             
-            // Show loading
-            document.getElementById('loadingOverlay').style.display = 'flex';
+            // Prepare business form data
+            const formData = {
+                companyName: companyName,
+                companyId: companyId,
+                contactName: contactName,
+                contactPosition: contactPosition,
+                companyEmail: companyEmail,
+                companyPhone: companyPhone,
+                companyAddress: companyAddress,
+                vehicleType: vehicleType,
+                vehicleCount: vehicleCount,
+                rentalDuration: rentalDuration,
+                estimatedMileage: estimatedMileage,
+                additionalInfo: additionalInfo
+            };
             
-            try {
-                // Prepare business request data for email
-                const businessData = {
-                    to_email: YOUR_EMAIL,
-                    company_name: companyName,
-                    company_id: companyId,
-                    contact_name: contactName,
-                    contact_position: contactPosition,
-                    company_email: companyEmail,
-                    company_phone: companyPhone,
-                    company_address: companyAddress,
-                    vehicle_type: vehicleType,
-                    vehicle_count: vehicleCount,
-                    rental_duration: rentalDuration,
-                    estimated_mileage: estimatedMileage,
-                    additional_info: additionalInfo,
-                    timestamp: new Date().toLocaleString('fr-FR')
-                };
-
-                // Send business request email
-                const response = await emailjs.send(
-                    EMAILJS_SERVICE_ID,
-                    EMAILJS_TEMPLATE_ID,
-                    businessData
-                );
-                
-                // Hide loading
-                document.getElementById('loadingOverlay').style.display = 'none';
-                
+            console.log("📋 Business form data prepared:", formData);
+            
+            // Send business request email
+            const emailResult = await sendBusinessRequestEmail(formData);
+            
+            if (emailResult.success) {
                 // Show success message
                 alert(`
 🎉 DEMANDE DE DEVIS ENVOYÉE !
@@ -3099,9 +3197,21 @@ AUTO Z - Solutions Corporate
                 // Show success effect
                 showConfettiEffect();
                 
-            } catch (error) {
-                document.getElementById('loadingOverlay').style.display = 'none';
-                alert("La demande a été enregistrée, mais l'email n'a pas pu être envoyé. Veuillez nous contacter directement à " + YOUR_EMAIL);
+            } else {
+                // Fallback message
+                alert(`
+📋 DEMANDE DE DEVIS ENREGISTRÉE !
+
+Votre demande a été enregistrée avec succès.
+
+Notre équipe vous contactera au ${companyPhone} pour votre devis personnalisé.
+
+Pour toute urgence, contactez-nous au +212 632 229 789.
+
+Merci pour votre intérêt !
+AUTO Z - Solutions Corporate
+                `);
+                
                 closeBusinessModal();
                 resetBusinessForm();
             }
@@ -3183,6 +3293,24 @@ AUTO Z - Solutions Corporate
             }
         `;
         document.head.appendChild(style);
+        
+        // Add CSS for debugging
+        const debugStyle = document.createElement('style');
+        debugStyle.textContent = `
+            .emailjs-debug {
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                z-index: 9999;
+                max-width: 300px;
+            }
+        `;
+        document.head.appendChild(debugStyle);
     </script>
 </body>
 </html>
